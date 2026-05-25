@@ -5,15 +5,15 @@ $page = $_GET['page'] ?? 'login';
 switch($page){
 
     case 'dashboard':
-        require 'public/dashboard.php';
+        require 'dashboard.php';
         break;
 
     case 'registro':
-        require 'public/registro.php';
+        require 'registro.php';
         break;
 
     default:
-        require 'public/login.php';
+        require 'login.php';
         break;
 }
 ?>
