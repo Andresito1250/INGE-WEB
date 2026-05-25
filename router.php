@@ -1,4 +1,7 @@
 <?php
+// Router simple — redirige la raíz al login
+header("Location: /login.php");
+exit;
 // Router principal — define qué controlador y acción ejecutar
 
 $request = $_SERVER['REQUEST_URI'];
