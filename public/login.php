@@ -1,12 +1,5 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
-
-
 if (isset($_SESSION['usuario'])) { header("Location: dashboard.php"); exit; }
 
 $error = "";
@@ -37,20 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <header>
-    <h1> Mi App Web</h1>
+    <h1>⚡ Mi App Web</h1>
     <span class="header-sub">Panel de administración</span>
 </header>
 
 <main style="display:flex; justify-content:center; align-items:flex-start;">
     <div class="form-wrap fade-up">
         <div style="text-align:center; margin-bottom:28px;">
-            <div style="font-size:48px; margin-bottom:12px;"></div>
+            <div style="font-size:48px; margin-bottom:12px;">🔐</div>
             <h2>Bienvenido de vuelta</h2>
             <p class="form-subtitle">Ingresa tus credenciales para continuar</p>
         </div>
 
         <?php if ($error): ?>
-            <div class="alert alert-error"> <?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-error">⚠️ <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
         <form method="POST" action="login.php">

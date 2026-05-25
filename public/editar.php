@@ -32,31 +32,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <header>
-    <h1> Mi App Web</h1>
+    <h1>⚡ Mi App Web</h1>
     <span class="header-sub">Editando usuario</span>
 </header>
 
 <nav>
     <ul>
-        <li><a href="dashboard.php"> Inicio</a></li>
-        <li><a href="usuarios.php"> Usuarios</a></li>
-        <li><a href="logout.php" style="margin-left:auto; color:var(--danger);"> Salir</a></li>
+        <li><a href="dashboard.php">🏠 Inicio</a></li>
+        <li><a href="usuarios.php">👥 Usuarios</a></li>
+        <li><a href="logout.php" style="margin-left:auto; color:var(--danger);">🚪 Salir</a></li>
     </ul>
 </nav>
 
 <main style="display:flex; justify-content:center;">
     <div class="form-wrap fade-up">
         <div style="text-align:center; margin-bottom:28px;">
-            <div style="font-size:48px; margin-bottom:12px;"></div>
+            <div style="font-size:48px; margin-bottom:12px;">✏️</div>
             <h2>Editar usuario</h2>
             <p class="form-subtitle">Modifica los datos del usuario</p>
         </div>
 
         <?php if ($error): ?>
-            <div class="alert alert-error"> <?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-error">⚠️ <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
         <?php if ($exito): ?>
-            <div class="alert alert-success"> <?= htmlspecialchars($exito) ?></div>
+            <div class="alert alert-success">✅ <?= htmlspecialchars($exito) ?></div>
         <?php endif; ?>
 
         <form method="POST" action="editar.php?id=<?= $id ?>">

@@ -25,16 +25,16 @@ $usuarios = $modelo->obtenerTodos();
 </head>
 <body>
 <header>
-    <h1> Mi App Web</h1>
+    <h1>⚡ Mi App Web</h1>
     <span class="header-sub">Gestión de usuarios</span>
 </header>
 
 <nav>
     <ul>
-        <li><a href="dashboard.php"> Inicio</a></li>
-        <li><a href="usuarios.php" class="active"> Usuarios</a></li>
-        <li><a href="registro.php">Agregar</a></li>
-        <li><a href="logout.php" style="margin-left:auto; color:var(--danger);"> Salir</a></li>
+        <li><a href="dashboard.php">🏠 Inicio</a></li>
+        <li><a href="usuarios.php" class="active">👥 Usuarios</a></li>
+        <li><a href="registro.php">➕ Agregar</a></li>
+        <li><a href="logout.php" style="margin-left:auto; color:var(--danger);">🚪 Salir</a></li>
     </ul>
 </nav>
 
@@ -71,10 +71,10 @@ $usuarios = $modelo->obtenerTodos();
                     <td style="color:var(--muted);"><?= htmlspecialchars($u['email']) ?></td>
                     <td style="color:var(--muted); font-size:13px;"><?= $u['created_at'] ?></td>
                     <td style="display:flex; gap:8px;">
-                        <a href="editar.php?id=<?= $u['id'] ?>" class="btn btn-edit"> Editar</a>
+                        <a href="editar.php?id=<?= $u['id'] ?>" class="btn btn-edit">✏️ Editar</a>
                         <a href="usuarios.php?eliminar=<?= $u['id'] ?>"
                            class="btn btn-danger"
-                           onclick="return confirm('¿Eliminar este usuario?')"> Eliminar</a>
+                           onclick="return confirm('¿Eliminar este usuario?')">🗑️ Eliminar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

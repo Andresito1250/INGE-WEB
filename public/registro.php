@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <header>
-    <h1> Mi App Web</h1>
+    <h1>⚡ Mi App Web</h1>
     <span class="header-sub">Crear cuenta nueva</span>
 </header>
 
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <?php if ($error): ?>
-            <div class="alert alert-error"> <?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-error">⚠️ <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
         <?php if ($exito): ?>
             <div class="alert alert-success">✅ <?= htmlspecialchars($exito) ?>

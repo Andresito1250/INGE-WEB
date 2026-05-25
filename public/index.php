@@ -1,6 +1,3 @@
 <?php
-
-header("Location: login.php");
-exit;
-
-?>
+session_start();
+include_once('../router.php');
