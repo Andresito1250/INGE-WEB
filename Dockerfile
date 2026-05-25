@@ -1,25 +1,24 @@
-FROM php:8.2-apache
+FROM nginx:alpine
 
-# Instalar extensión MySQL
-RUN docker-php-ext-install pdo pdo_mysql
+# Instalar PHP-FPM
+RUN apk add --no-cache php82 php82-fpm php82-pdo php82-pdo_mysql php82-session php82-mbstring
 
-# Deshabilitar módulos MPM en conflicto y dejar solo prefork
-RUN a2dismod mpm_event mpm_worker 2>/dev/null || true \
-    && a2enmod mpm_prefork
+# Crear symlink para que funcione como 'php'
+RUN ln -sf /usr/bin/php82 /usr/bin/php
 
-# Habilitar mod_rewrite
-RUN a2enmod rewrite
-
-# Copiar todo el proyecto al servidor
+# Copiar proyecto
 COPY . /var/www/html/
 
-# Configurar Apache para apuntar a /public
-RUN echo '<VirtualHost *:80>\n\
-    DocumentRoot /var/www/html/public\n\
-    <Directory /var/www/html/public>\n\
-        AllowOverride All\n\
-        Require all granted\n\
-    </Directory>\n\
-</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
+# Copiar configuración nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Permisos
+RUN chown -R nginx:nginx /var/www/html
+
+# Copiar y dar permisos al script de inicio
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
 EXPOSE 80
+
+CMD ["/start.sh"]
