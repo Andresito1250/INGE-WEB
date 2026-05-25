@@ -1,12 +1,14 @@
 <?php
-$host     = 'localhost';
-$dbname   = 'webapp';
-$user     = 'root';
-$password = 'root';
+// Lee las variables de entorno que Railway provee
+$host     = getenv('MYSQLHOST')     ?: 'localhost';
+$dbname   = getenv('MYSQLDATABASE') ?: 'webapp';
+$user     = getenv('MYSQLUSER')     ?: 'root';
+$password = getenv('MYSQLPASSWORD') ?: 'root';
+$port     = getenv('MYSQLPORT')     ?: '3306';
 
 try {
     $conn = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
         $user,
         $password
     );
